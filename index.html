@@ -1,324 +1,344 @@
 <!DOCTYPE html>
 <html lang="ru">
-<!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-    m[i].l=1*new Date();
-    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    ym(98487995, "init", {
-         clickmap:true,
-         trackLinks:true,
-         accurateTrackBounce:true,
-         webvisor:true,
-         ecommerce:"dataLayer"
-    });
- </script>
- <noscript><div><img src="https://mc.yandex.ru/watch/98487995" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
- <!-- /Yandex.Metrika counter -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Магазин AstroLog 🔮</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Приглашение на юбилей</title>
+  <meta name="description" content="Приглашение на мамин юбилей: 13 сентября в 17:00, ул. Чайковского, 9" />
+  <style>
+    :root{
+      --bg1:#f7f3ff;
+      --bg2:#fff7f1;
+      --card:#ffffffee;
+      --text:#1b1b1f;
+      --muted:#5f6270;
+      --accent1:#8a5cff; /* сиреневый */
+      --accent2:#ff7a59; /* персиковый */
+      --accent3:#2bb673; /* мята */
+      --ring: rgba(138,92,255,.35);
+      --shadow: 0 10px 30px rgba(20,20,40,.12), 0 4px 14px rgba(20,20,40,.06);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, var(--bg1), transparent 60%),
+        radial-gradient(1000px 500px at 110% 10%, var(--bg2), transparent 60%),
+        linear-gradient(180deg, #fff, #fbfbff 60%, #fff0ea);
+      display:flex; align-items:center; justify-content:center;
+      padding:24px;
+    }
+    .wrap{width:100%; max-width:980px}
+    .card{
+      position:relative;
+      background: var(--card);
+      backdrop-filter: blur(6px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .glow{
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(1000px 220px at 20% -10%, #8a5cff22, transparent 60%),
+        radial-gradient(900px 220px at 120% 0%, #ff7a5922, transparent 60%);
+      pointer-events:none;
+      filter: blur(2px);
+    }
+    header{
+      padding: 40px 28px 10px;
+      text-align:center;
+      position:relative;
+    }
+    .pill{
+      display:inline-block;
+      padding:8px 14px;
+      border-radius:999px;
+      background: linear-gradient(90deg, #efe8ff, #ffe7df);
+      color:#553a9d;
+      font-weight:600;
+      letter-spacing:.02em;
+      box-shadow: inset 0 0 0 1px #00000010;
+    }
+    h1{
+      margin:18px 0 10px;
+      line-height:1.15;
+      font-size: clamp(28px, 4.6vw, 44px);
+      background: linear-gradient(90deg, #2b2b33, #6c48ff 35%, #ff835f 70%, #2bb673 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+    }
+    .subtitle{
+      margin:0 auto;
+      max-width:720px;
+      color:var(--muted);
+      font-size: clamp(14px, 2.2vw, 17px);
+    }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
+    .content{
+      padding: 20px 24px 28px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+    }
+    @media (min-width: 860px){
+      .content{padding: 24px 30px 34px}
+      .grid{grid-template-columns: 1.2fr .8fr; gap:24px}
+    }
+    .panel{
+      background:#fff;
+      border-radius:16px;
+      padding:20px;
+      box-shadow: inset 0 0 0 1px #0000000d;
+    }
+    .section-title{
+      margin:0 0 12px;
+      font-weight:800;
+      letter-spacing:.02em;
+      font-size:18px;
+    }
+    .details{
+      display:grid;
+      grid-template-columns: 28px 1fr;
+      gap:12px;
+      align-items:flex-start;
+      padding:10px 0;
+    }
+    .ico{
+      width:28px; height:28px; display:grid;place-items:center;
+      background:linear-gradient(140deg, #efe8ff, #ffe7df);
+      color:#5a3fd6;
+      border-radius:10px;
+      font-size:16px;
+      box-shadow: inset 0 0 0 1px #00000012;
+    }
+    .label{color:var(--muted); font-size:13px; letter-spacing:.02em; margin-bottom:2px}
+    .value{font-weight:700}
 
-        .title-block {
-            font-size: 4em;
-            font-weight: bold;
-            color: white;
-            text-shadow: 2px 2px 4px #000000;
-        }
+    .map{
+      border-radius:14px;
+      background:linear-gradient(160deg, #f8f6ff, #fff2ec);
+      padding:16px;
+      box-shadow: inset 0 0 0 1px #0000000d;
+    }
+    .map a{
+      display:inline-flex; align-items:center; gap:10px;
+      text-decoration:none; font-weight:700; color:#4b3bd7;
+    }
+    .map small{display:block; color:var(--muted); margin-top:8px}
 
-        .telegram-icon {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
+    .btns{
+      display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
+    }
+    .btn{
+      appearance:none; border:0; cursor:pointer;
+      padding:12px 16px; border-radius:12px; font-weight:700;
+      display:inline-flex; align-items:center; gap:10px;
+      box-shadow: var(--shadow);
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+      user-select:none;
+    }
+    .btn:active{ transform: translateY(1px) }
+    .btn-primary{
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color:#fff;
+    }
+    .btn-outline{
+      background:#fff; color:#2b2f3a;
+      box-shadow: inset 0 0 0 1px #00000012, 0 6px 18px rgba(0,0,0,.06);
+    }
+    .btn .dot{
+      width:8px; height:8px; border-radius:50%;
+      background:#fff; box-shadow: 0 0 0 2px rgba(255,255,255,.35);
+    }
+    .hint{
+      margin-top:14px; color:var(--muted); font-size:13px;
+    }
 
-        .telegram-icon img {
-            width: 30px;
-            height: 30px;
-        }
+    footer{
+      padding:18px 24px 28px;
+      text-align:center; color:#454655;
+    }
+    .note{
+      display:inline-block; padding:10px 14px;
+      background:linear-gradient(120deg, #f5f2ff, #fff1eb);
+      border-radius:12px; font-weight:600; color:#5a3fd6;
+      box-shadow: inset 0 0 0 1px #00000010;
+    }
 
-        .intro {
-            position: relative;
-            width: 100vw;
-            height: 100vh;
-            text-align: center;
-            margin-bottom: 50px;
-        }
+    .confetti{
+      position:absolute; inset:0; pointer-events:none; overflow:hidden;
+    }
+    .confetti span{
+      position:absolute;
+      width:8px; height:12px;
+      background: #ffb3a3;
+      opacity:.75;
+      top:-14px;
+      border-radius:2px;
+      animation: fall 9s linear infinite;
+      transform: rotate(12deg);
+    }
+    .confetti span:nth-child(3n){ background:#c9b6ff }
+    .confetti span:nth-child(4n){ background:#94e6c0 }
+    .confetti span:nth-child(5n){ background:#ffd87a }
+    .confetti span:nth-child(6n){ background:#ff89a9 }
+    @keyframes fall{
+      0%{ transform: translateY(-20px) rotate(0deg) }
+      100%{ transform: translateY(120vh) rotate(360deg) }
+    }
 
-        .intro img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            top: 0;
-            left: 0;
-        }
-
-        .intro .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
-            text-shadow: 2px 2px 4px #000000;
-        }
-
-        .intro .content .centered {
-            font-size: 2.5em;
-            margin-bottom: 10px; /* Добавлено пространство между текстом и кнопкой */
-        }
-
-        .intro .content .btn {
-            background-color: #ffffff;
-            color: #000;
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-size: 1.2em;
-            text-decoration: none; /* Убрана подчеркивание текста */
-            display: inline-block; /* Установлен display inline-block чтобы убрать дополнительные стили текста */
-            text-shadow: none; /* Убран эффект тени текста */
-        }
-
-        .products {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            gap: 20px;
-        }
-
-        .product {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            max-width: 300px;
-            text-align: center;
-            transition: transform 0.2s;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product img {
-            width: 100%;
-            height: auto;
-        }
-
-        .product h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-
-        .product p {
-            padding: 0 10px;
-            font-size: 1em;
-            color: #555;
-            flex-grow: 1;
-        }
-
-        .product .price {
-            font-size: 1.2em;
-            margin: 10px 0;
-            color: #E91E63;
-        }
-
-        .product .btn {
-            background-color: #000;
-            color: #fff;
-            padding: 10px;
-            text-decoration: none;
-            border-radius: 0 0 5px 5px;
-        }
-
-        @media (max-width: 768px) {
-            .products {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .product {
-                max-width: 90%;
-            }
-
-            .intro .content .centered {
-                font-size: 2em;
-            }
-
-            .intro .content .btn {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-
-            .telegram-icon {
-                right: 10px;
-            }
-
-            .telegram-icon img {
-                width: 25px;
-                height: 25px;
-            }
-        }
-    </style>
+    .toast{
+      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
+      background:#101014; color:#fff; padding:10px 14px; border-radius:12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      opacity:0; pointer-events:none;
+      transition: all .25s ease;
+      font-weight:600; letter-spacing:.02em;
+    }
+    .toast.show{ opacity:1; transform: translateX(-50%) translateY(0) }
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
+  </style>
 </head>
-
 <body>
-    <div class="container">
-        <div class="intro">
-            <img src="https://static.tildacdn.info/tild3731-6637-4939-b739-313562376663/2024-09-28_173424.jpg" alt="AstroLog">
-            <div class="content">
-                <div class="centered">Войди в Мир предсказаний от AstroLog</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Узнать будущее</a>
+  <div class="wrap">
+    <div class="card" role="region" aria-label="Приглашение на юбилей">
+      <div class="glow"></div>
+      <div class="confetti" aria-hidden="true"></div>
+
+      <header>
+        <span class="pill">Приглашение • Юбилей 🎉</span>
+        <h1>Отмечаем юбилей — будем рады вас видеть!</h1>
+        <p class="subtitle">Тёплый семейный вечер, бокал поздравлений и много улыбок — присоединяйтесь, нам будет очень приятно разделить этот день с вами.</p>
+      </header>
+
+      <main class="content">
+        <div class="grid">
+          <section class="panel" aria-labelledby="details">
+            <h2 class="section-title" id="details">Детали встречи</h2>
+
+            <div class="details">
+              <div class="ico" aria-hidden="true">📅</div>
+              <div>
+                <div class="label">Когда</div>
+                <div class="value" id="when">13 сентября, 17:00</div>
+              </div>
             </div>
+
+            <div class="details">
+              <div class="ico" aria-hidden="true">📍</div>
+              <div>
+                <div class="label">Где</div>
+                <div class="value" id="where">ул. Чайковского, 9</div>
+              </div>
+            </div>
+
+            <div class="map" aria-labelledby="map-title">
+              <div class="label" id="map-title">Карта</div>
+              <a id="map-link" href="https://yandex.ru/maps/-/CLEbAIjN" target="_blank" rel="noopener">
+                <span class="ico" aria-hidden="true">🗺️</span>
+                <span>Открыть на Яндекс.Картах</span>
+              </a>
+              <small>Ссылка с маршрутом и точкой на карте</small>
+            </div>
+
+            <div class="btns">
+              <a class="btn btn-primary" href="https://yandex.ru/maps/-/CLEbAIjN" target="_blank" rel="noopener">
+                <span class="dot" aria-hidden="true"></span> Открыть карту
+              </a>
+              <button class="btn btn-outline" id="copy-invite" type="button">
+                ✍️ Скопировать текст приглашения
+              </button>
+              <button class="btn btn-outline" id="copy-address" type="button">
+                📌 Скопировать адрес
+              </button>
+            </div>
+            <p class="hint">Если удобно, дайте знать, сможете ли прийти. Будем очень рады встрече!</p>
+          </section>
+
+          <aside class="panel" aria-labelledby="notes">
+            <h2 class="section-title" id="notes">Немного о вечере</h2>
+            <ul>
+              <li>Формат: тёплые поздравления, лёгкие угощения, музыка и фото.</li>
+              <li>Дресс-код: как удобно; главное — хорошее настроение 🙂</li>
+              <li>Можно приходить с детьми — всем найдём занятие!</li>
+            </ul>
+          </aside>
         </div>
+      </main>
 
-        <div class="products">
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3466-3036-4732-b133-383538313064/_.jpeg" alt="Пакет Новичок">
-                <h2>Пакет "Новичок"</h2>
-                <p>5 токенов, которые ты можешь использовать для ежедневных гороскопов или одного персонального прогноза</p>
-                <div class="price">499.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3530-3632-4561-b433-326666653230/242d36ef7da911efb090.jpeg" alt="Пакет Звёздный Путник">
-                <h2>Пакет "Звёздный Путник"</h2>
-                <p>12 токенов для прогнозов на неделю и анализа совместимости со знаками зодиака</p>
-                <div class="price">999.00 р. <span style="text-decoration: line-through; color: #999;">1700.00 р.</span></div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3863-3563-4938-b163-616234363234/82ecb9417da911efa14a.jpeg" alt="Пакет Создатель Судеб">
-                <h2>Пакет "Создатель Судеб"</h2>
-                <p>25 токенов для месячных прогнозов, анализа любви, карьеры и семьи.</p>
-                <div class="price">1999.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3062-6630-4032-b133-636338353462/b4399f327da911efb7c8.jpeg" alt="Пакет Мастер Звёзд">
-                <h2>Пакет "Мастер Звёзд"</h2>
-                <p>50 токенов для углубленного анализа натальных карт, судьбы и жизненных решений.</p>
-                <div class="price">3999.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3837-3466-4133-b835-396134323739/491610e37daa11efb15d.jpeg" alt="Персональный гороскоп">
-                <h2>Персональный гороскоп</h2>
-                <p>Детализированный прогноз на день, основанный на твоей дате рождения.</p>
-                <div class="price">799.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3465-3963-4130-b937-323333353635/f76fde1b7daa11ef8e71.jpeg" alt="Гороскоп на неделю">
-                <h2>Гороскоп на неделю</h2>
-                <p>Подробный гороскоп с анализом энергии на всю неделю. Советы для всех сфер жизни</p>
-                <div class="price">1499 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3837-3536-4039-b665-323262636235/7aaa3f2b7daa11efa80d.jpeg" alt="Гороскоп на месяц">
-                <h2>Гороскоп на месяц</h2>
-                <p>Месячный прогноз для понимания жизненных вызовов и применимых возможностей.</p>
-                <div class="price">2499 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild6365-6233-4437-a266-346635666663/ae9ecf807daa11efaf28.jpeg" alt="Анализ Совместимости">
-                <h2>Анализ Совместимости</h2>
-                <p>Узнай, как взаимодействуют ваши знаки зодиака и получите советы по любви.</p>
-                <div class="price">1199.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3563-3031-4363-b239-633733396563/c4a402ee7dab11ef9b4d.jpeg" alt="Анализ Совместимости по натальной карте">
-                <h2>Анализ Совместимости по натальной карте</h2>
-                <p>Глубинный анализ совместимости на уровне натальных карт и влияния планет.</p>
-                <div class="price">2499 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3964-6465-4139-b539-626235636230/f855cf587dab11ef8331.jpeg" alt="Натальная карта">
-                <h2>Натальная карта</h2>
-                <p>Индивидуальная натальная карта, которая раскрывает твою личность и карму.</p>
-                <div class="price">3199 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild6631-3638-4432-b630-646634653763/336ea12c7dac11efa6af.jpeg" alt="Благоприятные дни для сделок">
-                <h2>Благоприятные дни для сделок</h2>
-                <p>Определи лучший день для деловой активности и важных личных решений.</p>
-                <div class="price">1499 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild6464-3563-4033-b434-623565346531/4dabba0d7dac11efb1e1.jpeg" alt="Анализ кармы и жизненного пути">
-                <h2>Анализ кармы и жизненного пути</h2>
-                <p>Глубокий анализ твоего жизненного пути и кармических уроков на основе движения планет.</p>
-                <div class="price">3599 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3438-6233-4862-a134-353330333535/e09fb6e57dac11efa541.jpeg" alt="Прогноз на карьеру">
-                <h2>Прогноз на карьеру</h2>
-                <p>Персональный анализ того, как планеты могут повлиять на твою карьеру в ближайший месяц.</p>
-                <div class="price">1799.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3334-3231-4435-b335-383535636431/0b0b6ef97dad11ef8c54.jpeg" alt="Прогноз на любовь">
-                <h2>Прогноз на любовь</h2>
-                <p>Анализ твоей любовной жизни и советы на основе движения планет и фаз Луны.</p>
-                <div class="price">1599.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild6164-6135-4134-a566-613764363764/2076321a7dad11efb997.jpeg" alt="Сонник с астрологическим анализом">
-                <h2>Сонник с астрологическим анализом</h2>
-                <p>Толкование твоих снов с точки зрения астрологических символов и влияний.</p>
-                <div class="price">999.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-
-            <div class="product">
-                <img src="https://static.tildacdn.info/tild3234-6266-4430-a237-383533353065/32aab3fd7dad11efbfae.jpeg" alt="Лунные фазы и влияние на жизнь">
-                <h2>Лунные фазы и влияние на жизнь</h2>
-                <p>Прогноз влияния фаз Луны на твои настроения, решения и важные моменты жизни.</p>
-                <div class="price">1299.00 р.</div>
-                <a href="https://t.me/astrolog_misis_bot" class="btn">Добавить в корзину</a>
-            </div>
-        </div>
+      <footer>
+        <div class="note">До встречи 13 сентября в 17:00 на ул. Чайковского, 9 🥂</div>
+      </footer>
     </div>
-</body>
+  </div>
 
+  <div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
+
+  <script>
+    // Конфетти (несколько элементов с разными позициями)
+    (function makeConfetti(){
+      const container = document.querySelector('.confetti');
+      const count = 36;
+      const w = window.innerWidth;
+      for(let i=0;i<count;i++){
+        const s = document.createElement('span');
+        const left = Math.random()*w;
+        const delay = Math.random()*9;
+        const duration = 7 + Math.random()*5;
+        const scale = 0.6 + Math.random()*0.9;
+        s.style.left = left+'px';
+        s.style.animationDelay = delay+'s';
+        s.style.animationDuration = duration+'s';
+        s.style.transform = 'scale('+scale+') rotate('+(Math.random()*180)+'deg)';
+        container.appendChild(s);
+      }
+    })();
+
+    const EVENT = {
+      dateText: '13 сентября',
+      timeText: '17:00',
+      address: 'ул. Чайковского, 9',
+      mapUrl: 'https://yandex.ru/maps/-/CLEbAIjN'
+    };
+
+    const inviteText = [
+      'Дорогие родные и друзья!',
+      `Приглашаю вас на мамин юбилей ${EVENT.dateText} в ${EVENT.timeText}.`,
+      `Встречаемся по адресу: ${EVENT.address}.`,
+      `Карта: ${EVENT.mapUrl}`
+    ].join(' ');
+
+    function showToast(msg){
+      const t = document.getElementById('toast');
+      t.textContent = msg || 'Готово';
+      t.classList.add('show');
+      setTimeout(()=> t.classList.remove('show'), 1600);
+    }
+
+    function copyText(text){
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(()=> showToast('Скопировано'));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta);
+        ta.select(); ta.setSelectionRange(0, 99999);
+        try{ document.execCommand('copy'); showToast('Скопировано'); }
+        catch(e){ showToast('Не удалось скопировать'); }
+        document.body.removeChild(ta);
+      }
+    }
+
+    document.getElementById('copy-invite').addEventListener('click', ()=> copyText(inviteText));
+    document.getElementById('copy-address').addEventListener('click', ()=> copyText(`${EVENT.address}. Карта: ${EVENT.mapUrl}`));
+  </script>
+</body>
 </html>
