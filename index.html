@@ -1,344 +1,401 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Приглашение на юбилей</title>
-  <meta name="description" content="Приглашение на мамин юбилей: 13 сентября в 17:00, ул. Чайковского, 9" />
-  <style>
-    :root{
-      --bg1:#f7f3ff;
-      --bg2:#fff7f1;
-      --card:#ffffffee;
-      --text:#1b1b1f;
-      --muted:#5f6270;
-      --accent1:#8a5cff; /* сиреневый */
-      --accent2:#ff7a59; /* персиковый */
-      --accent3:#2bb673; /* мята */
-      --ring: rgba(138,92,255,.35);
-      --shadow: 0 10px 30px rgba(20,20,40,.12), 0 4px 14px rgba(20,20,40,.06);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: "Segoe UI", Roboto, Inter, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% -10%, var(--bg1), transparent 60%),
-        radial-gradient(1000px 500px at 110% 10%, var(--bg2), transparent 60%),
-        linear-gradient(180deg, #fff, #fbfbff 60%, #fff0ea);
-      display:flex; align-items:center; justify-content:center;
-      padding:24px;
-    }
-    .wrap{width:100%; max-width:980px}
-    .card{
-      position:relative;
-      background: var(--card);
-      backdrop-filter: blur(6px);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    .glow{
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(1000px 220px at 20% -10%, #8a5cff22, transparent 60%),
-        radial-gradient(900px 220px at 120% 0%, #ff7a5922, transparent 60%);
-      pointer-events:none;
-      filter: blur(2px);
-    }
-    header{
-      padding: 40px 28px 10px;
-      text-align:center;
-      position:relative;
-    }
-    .pill{
-      display:inline-block;
-      padding:8px 14px;
-      border-radius:999px;
-      background: linear-gradient(90deg, #efe8ff, #ffe7df);
-      color:#553a9d;
-      font-weight:600;
-      letter-spacing:.02em;
-      box-shadow: inset 0 0 0 1px #00000010;
-    }
-    h1{
-      margin:18px 0 10px;
-      line-height:1.15;
-      font-size: clamp(28px, 4.6vw, 44px);
-      background: linear-gradient(90deg, #2b2b33, #6c48ff 35%, #ff835f 70%, #2bb673 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 800;
-    }
-    .subtitle{
-      margin:0 auto;
-      max-width:720px;
-      color:var(--muted);
-      font-size: clamp(14px, 2.2vw, 17px);
-    }
-
-    .content{
-      padding: 20px 24px 28px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap:18px;
-    }
-    @media (min-width: 860px){
-      .content{padding: 24px 30px 34px}
-      .grid{grid-template-columns: 1.2fr .8fr; gap:24px}
-    }
-    .panel{
-      background:#fff;
-      border-radius:16px;
-      padding:20px;
-      box-shadow: inset 0 0 0 1px #0000000d;
-    }
-    .section-title{
-      margin:0 0 12px;
-      font-weight:800;
-      letter-spacing:.02em;
-      font-size:18px;
-    }
-    .details{
-      display:grid;
-      grid-template-columns: 28px 1fr;
-      gap:12px;
-      align-items:flex-start;
-      padding:10px 0;
-    }
-    .ico{
-      width:28px; height:28px; display:grid;place-items:center;
-      background:linear-gradient(140deg, #efe8ff, #ffe7df);
-      color:#5a3fd6;
-      border-radius:10px;
-      font-size:16px;
-      box-shadow: inset 0 0 0 1px #00000012;
-    }
-    .label{color:var(--muted); font-size:13px; letter-spacing:.02em; margin-bottom:2px}
-    .value{font-weight:700}
-
-    .map{
-      border-radius:14px;
-      background:linear-gradient(160deg, #f8f6ff, #fff2ec);
-      padding:16px;
-      box-shadow: inset 0 0 0 1px #0000000d;
-    }
-    .map a{
-      display:inline-flex; align-items:center; gap:10px;
-      text-decoration:none; font-weight:700; color:#4b3bd7;
-    }
-    .map small{display:block; color:var(--muted); margin-top:8px}
-
-    .btns{
-      display:flex; flex-wrap:wrap; gap:10px; margin-top:14px;
-    }
-    .btn{
-      appearance:none; border:0; cursor:pointer;
-      padding:12px 16px; border-radius:12px; font-weight:700;
-      display:inline-flex; align-items:center; gap:10px;
-      box-shadow: var(--shadow);
-      transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
-      user-select:none;
-    }
-    .btn:active{ transform: translateY(1px) }
-    .btn-primary{
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      color:#fff;
-    }
-    .btn-outline{
-      background:#fff; color:#2b2f3a;
-      box-shadow: inset 0 0 0 1px #00000012, 0 6px 18px rgba(0,0,0,.06);
-    }
-    .btn .dot{
-      width:8px; height:8px; border-radius:50%;
-      background:#fff; box-shadow: 0 0 0 2px rgba(255,255,255,.35);
-    }
-    .hint{
-      margin-top:14px; color:var(--muted); font-size:13px;
-    }
-
-    footer{
-      padding:18px 24px 28px;
-      text-align:center; color:#454655;
-    }
-    .note{
-      display:inline-block; padding:10px 14px;
-      background:linear-gradient(120deg, #f5f2ff, #fff1eb);
-      border-radius:12px; font-weight:600; color:#5a3fd6;
-      box-shadow: inset 0 0 0 1px #00000010;
-    }
-
-    .confetti{
-      position:absolute; inset:0; pointer-events:none; overflow:hidden;
-    }
-    .confetti span{
-      position:absolute;
-      width:8px; height:12px;
-      background: #ffb3a3;
-      opacity:.75;
-      top:-14px;
-      border-radius:2px;
-      animation: fall 9s linear infinite;
-      transform: rotate(12deg);
-    }
-    .confetti span:nth-child(3n){ background:#c9b6ff }
-    .confetti span:nth-child(4n){ background:#94e6c0 }
-    .confetti span:nth-child(5n){ background:#ffd87a }
-    .confetti span:nth-child(6n){ background:#ff89a9 }
-    @keyframes fall{
-      0%{ transform: translateY(-20px) rotate(0deg) }
-      100%{ transform: translateY(120vh) rotate(360deg) }
-    }
-
-    .toast{
-      position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%) translateY(20px);
-      background:#101014; color:#fff; padding:10px 14px; border-radius:12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      opacity:0; pointer-events:none;
-      transition: all .25s ease;
-      font-weight:600; letter-spacing:.02em;
-    }
-    .toast.show{ opacity:1; transform: translateX(-50%) translateY(0) }
-    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0 }
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <div class="card" role="region" aria-label="Приглашение на юбилей">
-      <div class="glow"></div>
-      <div class="confetti" aria-hidden="true"></div>
-
-      <header>
-        <span class="pill">Приглашение • Юбилей 🎉</span>
-        <h1>Отмечаем юбилей — будем рады вас видеть!</h1>
-        <p class="subtitle">Тёплый семейный вечер, бокал поздравлений и много улыбок — присоединяйтесь, нам будет очень приятно разделить этот день с вами.</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>КейсПодбор — лендинг продукта</title>
+    <meta
+      name="description"
+      content="КейсПодбор — сервис подбора стажеров и джунов по коротким кейсам вместо длинных многоэтапных собеседований."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top">
+          <span class="brand-mark">KP</span>
+          <span class="brand-copy">
+            <strong>КейсПодбор</strong>
+            <small>HR Tech</small>
+          </span>
+        </a>
+        <nav class="site-nav" aria-label="Главная навигация">
+          <a href="#problem">Проблема</a>
+          <a href="#solution">Решение</a>
+          <a href="#mockups">Макеты</a>
+          <a href="#pricing">Стоимость</a>
+          <a href="#contact">Контакты</a>
+        </nav>
       </header>
 
-      <main class="content">
-        <div class="grid">
-          <section class="panel" aria-labelledby="details">
-            <h2 class="section-title" id="details">Детали встречи</h2>
-
-            <div class="details">
-              <div class="ico" aria-hidden="true">📅</div>
-              <div>
-                <div class="label">Когда</div>
-                <div class="value" id="when">13 сентября, 17:00</div>
-              </div>
+      <main id="top">
+        <section class="hero section">
+          <div class="hero-copy">
+            <p class="eyebrow">Лендинг для защиты продукта перед инвесторами</p>
+            <h1>Подбор стажеров и джунов по реальным кейсам, а не по бесконечным собеседованиям</h1>
+            <p class="hero-lead">
+              КейсПодбор помогает компаниям быстрее выходить на сильный шорт-лист, а кандидатам
+              дает понятный и прозрачный путь отбора с практической проверкой навыков.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#pricing">Посмотреть тарифы</a>
+              <a class="button button-secondary" href="#mockups">Открыть макеты</a>
             </div>
-
-            <div class="details">
-              <div class="ico" aria-hidden="true">📍</div>
-              <div>
-                <div class="label">Где</div>
-                <div class="value" id="where">ул. Чайковского, 9</div>
-              </div>
-            </div>
-
-            <div class="map" aria-labelledby="map-title">
-              <div class="label" id="map-title">Карта</div>
-              <a id="map-link" href="https://yandex.ru/maps/-/CLEbAIjN" target="_blank" rel="noopener">
-                <span class="ico" aria-hidden="true">🗺️</span>
-                <span>Открыть на Яндекс.Картах</span>
-              </a>
-              <small>Ссылка с маршрутом и точкой на карте</small>
-            </div>
-
-            <div class="btns">
-              <a class="btn btn-primary" href="https://yandex.ru/maps/-/CLEbAIjN" target="_blank" rel="noopener">
-                <span class="dot" aria-hidden="true"></span> Открыть карту
-              </a>
-              <button class="btn btn-outline" id="copy-invite" type="button">
-                ✍️ Скопировать текст приглашения
-              </button>
-              <button class="btn btn-outline" id="copy-address" type="button">
-                📌 Скопировать адрес
-              </button>
-            </div>
-            <p class="hint">Если удобно, дайте знать, сможете ли прийти. Будем очень рады встрече!</p>
-          </section>
-
-          <aside class="panel" aria-labelledby="notes">
-            <h2 class="section-title" id="notes">Немного о вечере</h2>
-            <ul>
-              <li>Формат: тёплые поздравления, лёгкие угощения, музыка и фото.</li>
-              <li>Дресс-код: как удобно; главное — хорошее настроение 🙂</li>
-              <li>Можно приходить с детьми — всем найдём занятие!</li>
+            <ul class="hero-points">
+              <li>Короткие кейсы вместо части первичных интервью</li>
+              <li>Единый формат оценки для HR и нанимающих менеджеров</li>
+              <li>Прозрачные статусы и обратная связь для кандидатов</li>
             </ul>
-          </aside>
-        </div>
+          </div>
+
+          <div class="hero-panel">
+            <div class="hero-stat">
+              <span class="hero-stat-value">1 кейс</span>
+              <span class="hero-stat-label">вместо 4-5 созвонов на раннем этапе</span>
+            </div>
+            <div class="hero-card">
+              <p class="hero-card-label">Сценарий продукта</p>
+              <ol>
+                <li>Компания создает вакансию и кейс</li>
+                <li>Кандидат проходит короткое практическое задание</li>
+                <li>Система формирует отчет и ранжирование</li>
+                <li>HR приглашает сильных кандидатов дальше</li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <section class="signal-strip section">
+          <article class="signal-card">
+            <span class="signal-number">01</span>
+            <h2>Проблема рынка</h2>
+            <p>Резюме стажеров мало различимы, а техсобесы съедают время тимлидов и HR.</p>
+          </article>
+          <article class="signal-card">
+            <span class="signal-number">02</span>
+            <h2>Что меняем</h2>
+            <p>Проверяем навык действием: короткий кейс показывает ход мысли и качество решения.</p>
+          </article>
+          <article class="signal-card">
+            <span class="signal-number">03</span>
+            <h2>Для кого</h2>
+            <p>Для IT-команд и работодателей, которые нанимают стажеров и джунов регулярно.</p>
+          </article>
+        </section>
+
+        <section class="problem section" id="problem">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 1. Проблема</p>
+            <h2>Текущий найм молодых специалистов слишком длинный, дорогой и непрозрачный</h2>
+          </div>
+          <div class="problem-grid">
+            <article class="problem-card">
+              <h3>Для HR</h3>
+              <p>
+                На раннем этапе приходится просматривать десятки похожих резюме и координировать
+                много шагов отбора без объективного сигнала по навыкам.
+              </p>
+            </article>
+            <article class="problem-card">
+              <h3>Для нанимающего менеджера</h3>
+              <p>
+                Тимлиды тратят время на нерелевантные собеседования, хотя им нужен короткий и
+                сравнимый предфильтр до личной встречи.
+              </p>
+            </article>
+            <article class="problem-card">
+              <h3>Для кандидата</h3>
+              <p>
+                Процесс выглядит как черный ящик: непонятно, когда ответят, что пошло не так и
+                зачем проходить несколько похожих этапов подряд.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="solution section" id="solution">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 2. Решение</p>
+            <h2>КейсПодбор заменяет хаотичный скрининг на единый сценарий оценки</h2>
+          </div>
+          <div class="solution-layout">
+            <article class="solution-story">
+              <h3>Что получает компания</h3>
+              <ul class="feature-list">
+                <li>Конструктор кейсов под роль и уровень кандидата</li>
+                <li>Единый формат отчета и сравнения кандидатов</li>
+                <li>Более быстрый выход на шорт-лист без лишних интервью</li>
+                <li>Прозрачный процесс для HR, нанимающих и кандидатов</li>
+              </ul>
+            </article>
+            <article class="before-after">
+              <div class="state-card">
+                <p class="state-label">Было</p>
+                <ul>
+                  <li>Резюме + ручной скрининг</li>
+                  <li>Много этапов до полезного сигнала</li>
+                  <li>Разные критерии оценки у разных менеджеров</li>
+                </ul>
+              </div>
+              <div class="state-card state-card-accent">
+                <p class="state-label">Стало</p>
+                <ul>
+                  <li>Кейс как ранний объективный фильтр</li>
+                  <li>Сравнимые результаты по единой шкале</li>
+                  <li>Собеседование только с сильными кандидатами</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="workflow section" id="workflow">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 3. Как это работает</p>
+            <h2>Четыре шага от вакансии до шорт-листа</h2>
+          </div>
+          <div class="steps">
+            <article class="step-card">
+              <span class="step-index">1</span>
+              <h3>Создание вакансии</h3>
+              <p>HR или нанимающий менеджер открывает позицию и выбирает кейс под нужный профиль.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-index">2</span>
+              <h3>Прохождение кейса</h3>
+              <p>Кандидат получает понятное задание с ограничением по времени и проходит его онлайн.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-index">3</span>
+              <h3>Отчет и ранжирование</h3>
+              <p>Система собирает результат, ход решения и превращает его в удобную карточку кандидата.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-index">4</span>
+              <h3>Дальнейшее решение</h3>
+              <p>HR быстро выбирает, кого приглашать на собеседование, а кандидат видит статус своей заявки.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="mockups section" id="mockups">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 4. Макеты продукта</p>
+            <h2>Ключевой сценарий продукта показан через пять основных экранов</h2>
+            <p class="section-note">
+              Макеты демонстрируют и путь кандидата, и инструменты HR: именно это закрывает ключевую
+              проблему долгого и непрозрачного найма.
+            </p>
+          </div>
+
+          <div class="mockup-grid">
+            <article class="mockup-card">
+              <div class="screen screen-vacancies">
+                <div class="screen-topbar"></div>
+                <div class="screen-title short"></div>
+                <div class="screen-list">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="screen-chip-row">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <h3>1. Каталог вакансий</h3>
+              <p>
+                Кандидат сразу видит роли и требования. Это снижает хаос и делает старт сценария
+                понятным.
+              </p>
+            </article>
+
+            <article class="mockup-card">
+              <div class="screen screen-case">
+                <div class="screen-topbar"></div>
+                <div class="screen-progress"></div>
+                <div class="screen-block large"></div>
+                <div class="screen-block medium"></div>
+                <div class="screen-button"></div>
+              </div>
+              <h3>2. Прохождение кейса</h3>
+              <p>
+                Экран задания с таймингом и полем ответа показывает, как продукт оценивает навык
+                действием, а не только резюме.
+              </p>
+            </article>
+
+            <article class="mockup-card">
+              <div class="screen screen-status">
+                <div class="screen-topbar"></div>
+                <div class="status-item accent"></div>
+                <div class="status-item"></div>
+                <div class="status-item"></div>
+              </div>
+              <h3>3. Статус заявки</h3>
+              <p>
+                Кандидат видит этапы отбора и понимает, что происходит дальше. Это убирает чувство
+                черного ящика.
+              </p>
+            </article>
+
+            <article class="mockup-card">
+              <div class="screen screen-hr">
+                <div class="screen-topbar"></div>
+                <div class="screen-columns">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="screen-cards">
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <h3>4. Панель HR</h3>
+              <p>
+                Нанимающий видит кандидатов по вакансии и быстро двигается к шорт-листу без лишнего
+                ручного разбора.
+              </p>
+            </article>
+
+            <article class="mockup-card">
+              <div class="screen screen-report">
+                <div class="screen-topbar"></div>
+                <div class="screen-score"></div>
+                <div class="screen-chart"></div>
+                <div class="screen-block small"></div>
+                <div class="screen-button"></div>
+              </div>
+              <h3>5. Карточка кандидата</h3>
+              <p>
+                Единый отчет по результату кейса помогает сравнивать кандидатов и принимать решение
+                на основании навыков.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="pricing section" id="pricing">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 5. Стоимость и модели покупки</p>
+            <h2>Покупайте доступ по подписке или платите за успешный найм</h2>
+            <p class="section-note">
+              Реальная модель монетизации для лендинга: гибрид подписки и оплаты за результат,
+              чтобы у компании был и предсказуемый формат, и низкий барьер входа.
+            </p>
+          </div>
+
+          <div class="pricing-grid">
+            <article class="price-card">
+              <p class="price-plan">Старт</p>
+              <p class="price-value">15 000 ₽<span>/мес</span></p>
+              <ul>
+                <li>1-2 вакансии</li>
+                <li>До 30 кандидатов в месяц</li>
+                <li>Базовый набор кейсов</li>
+              </ul>
+              <a class="button button-secondary" href="#contact">Запросить демо</a>
+            </article>
+
+            <article class="price-card price-card-featured">
+              <p class="price-plan">Бизнес</p>
+              <p class="price-value">35 000 ₽<span>/мес</span></p>
+              <ul>
+                <li>До 5 вакансий</li>
+                <li>До 100 кандидатов</li>
+                <li>Кастомные кейсы и отчеты</li>
+              </ul>
+              <a class="button button-primary" href="#contact">Выбрать тариф</a>
+            </article>
+
+            <article class="price-card">
+              <p class="price-plan">Под ключ</p>
+              <p class="price-value">70 000 ₽<span>/мес</span></p>
+              <ul>
+                <li>Безлимит по вакансиям</li>
+                <li>Приоритетная поддержка</li>
+                <li>Интеграция с ATS</li>
+              </ul>
+              <a class="button button-secondary" href="#contact">Обсудить условия</a>
+            </article>
+          </div>
+
+          <div class="purchase-models">
+            <article class="purchase-card">
+              <h3>Модель покупки 1: подписка</h3>
+              <p>
+                Для компаний с регулярным наймом. Подходит тем, кто хочет встроить кейсы в
+                постоянный процесс отбора.
+              </p>
+            </article>
+            <article class="purchase-card purchase-card-accent">
+              <h3>Модель покупки 2: за успешный найм</h3>
+              <p class="success-fee">25 000 ₽ за принятого кандидата</p>
+              <p>
+                Хороший формат для пилота: клиент платит за понятный результат и снижает барьер
+                входа в продукт.
+              </p>
+            </article>
+          </div>
+
+          <div class="decision-strip">
+            <p><strong>14 дней бесплатно</strong> для пилотного запуска.</p>
+            <p><strong>Экономия времени тимлида</strong> на первичных интервью.</p>
+            <p><strong>Демо за 30 минут</strong> с разбором вашего сценария найма.</p>
+          </div>
+        </section>
+
+        <section class="proof section">
+          <div class="section-heading">
+            <p class="eyebrow">Блок 6. Почему продукт нужен сейчас</p>
+            <h2>КейсПодбор опирается на реальную проблему, подтвержденную исследованиями команды</h2>
+          </div>
+          <div class="proof-grid">
+            <article class="quote-card">
+              <p class="quote-text">
+                «Резюме стажеров все одинаковые. Нужен фильтр до собеседования, который показывает,
+                кто реально умеет думать».
+              </p>
+              <p class="quote-author">Инсайт из интервью с рекрутером</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">
+                «Домашнее тестовое стало лотереей. Важно видеть ход решения, а не только красивый результат».
+              </p>
+              <p class="quote-author">Инсайт из интервью с тимлидом</p>
+            </article>
+            <article class="quote-card">
+              <p class="quote-text">
+                «Кандидатам нужен понятный статус и честный формат отбора, а не несколько одинаковых этапов подряд».
+              </p>
+              <p class="quote-author">Инсайт из интервью с кандидатами</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="contact section" id="contact">
+          <div class="contact-copy">
+            <p class="eyebrow">Блок 7. Финальный CTA</p>
+            <h2>Готовы сократить путь от отклика до сильного шорт-листа?</h2>
+            <p>
+              Запустите пилот, соберите первый набор кандидатов через кейсы и сравните новый сценарий
+              с текущим процессом найма.
+            </p>
+          </div>
+          <div class="contact-panel">
+            <a class="button button-primary" href="mailto:team@casepodbor.ru">Получить демо</a>
+            <a class="button button-secondary" href="mailto:team@casepodbor.ru?subject=Запрос%20тарифа%20КейсПодбор">
+              Запросить коммерческое предложение
+            </a>
+            <div class="contact-meta">
+              <p><strong>Email:</strong> team@casepodbor.ru</p>
+              <p><strong>Формат пилота:</strong> 14 дней, до 10 кандидатов</p>
+            </div>
+          </div>
+        </section>
       </main>
-
-      <footer>
-        <div class="note">До встречи 13 сентября в 17:00 на ул. Чайковского, 9 🥂</div>
-      </footer>
     </div>
-  </div>
-
-  <div class="toast" id="toast" role="status" aria-live="polite">Скопировано</div>
-
-  <script>
-    // Конфетти (несколько элементов с разными позициями)
-    (function makeConfetti(){
-      const container = document.querySelector('.confetti');
-      const count = 36;
-      const w = window.innerWidth;
-      for(let i=0;i<count;i++){
-        const s = document.createElement('span');
-        const left = Math.random()*w;
-        const delay = Math.random()*9;
-        const duration = 7 + Math.random()*5;
-        const scale = 0.6 + Math.random()*0.9;
-        s.style.left = left+'px';
-        s.style.animationDelay = delay+'s';
-        s.style.animationDuration = duration+'s';
-        s.style.transform = 'scale('+scale+') rotate('+(Math.random()*180)+'deg)';
-        container.appendChild(s);
-      }
-    })();
-
-    const EVENT = {
-      dateText: '13 сентября',
-      timeText: '17:00',
-      address: 'ул. Чайковского, 9',
-      mapUrl: 'https://yandex.ru/maps/-/CLEbAIjN'
-    };
-
-    const inviteText = [
-      'Дорогие родные и друзья!',
-      `Приглашаю вас на мамин юбилей ${EVENT.dateText} в ${EVENT.timeText}.`,
-      `Встречаемся по адресу: ${EVENT.address}.`,
-      `Карта: ${EVENT.mapUrl}`
-    ].join(' ');
-
-    function showToast(msg){
-      const t = document.getElementById('toast');
-      t.textContent = msg || 'Готово';
-      t.classList.add('show');
-      setTimeout(()=> t.classList.remove('show'), 1600);
-    }
-
-    function copyText(text){
-      if(navigator.clipboard && navigator.clipboard.writeText){
-        navigator.clipboard.writeText(text).then(()=> showToast('Скопировано'));
-      } else {
-        const ta = document.createElement('textarea');
-        ta.value = text; document.body.appendChild(ta);
-        ta.select(); ta.setSelectionRange(0, 99999);
-        try{ document.execCommand('copy'); showToast('Скопировано'); }
-        catch(e){ showToast('Не удалось скопировать'); }
-        document.body.removeChild(ta);
-      }
-    }
-
-    document.getElementById('copy-invite').addEventListener('click', ()=> copyText(inviteText));
-    document.getElementById('copy-address').addEventListener('click', ()=> copyText(`${EVENT.address}. Карта: ${EVENT.mapUrl}`));
-  </script>
-</body>
+  </body>
 </html>
